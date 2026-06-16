@@ -1,7 +1,15 @@
 package src;
 
-public interface Flyable {
-    // protected WeatherTower weatherTower;
-    // public abstract void updateConditions();
-    public void registerTower(WeatherTower weatherTower);
+public abstract class Flyable {
+    protected WeatherTower weatherTower;
+
+    public void registerTower(WeatherTower p_tower) {
+        this.weatherTower = p_tower;
+        p_tower.register(this);
+    };
+
+    public abstract void updateConditions();
+    public abstract long getId();
+    public abstract String getType();
+    public abstract String getName();
 }

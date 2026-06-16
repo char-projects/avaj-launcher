@@ -32,4 +32,19 @@ public class Coordinates {
     public int getHeight() {
         return this.height;
     };
+
+    public void changeLongitude(int newLongitude) {
+        longitude += newLongitude;
+    };
+
+    public void changeLatitude(int newLatitude) {
+        latitude += newLatitude;
+    };
+
+    public void changeHeight(int newHeight) {
+        height += newHeight;
+        if (height > 100) {
+            height = 100;
+        }
+    };
 }

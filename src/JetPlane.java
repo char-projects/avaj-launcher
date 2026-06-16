@@ -1,9 +1,9 @@
 package src;
 
-public class JetPlane extends Aircraft implements Flyable {
+class JetPlane extends Aircraft {
     private WeatherTower weatherTower;
 
-    JetPlane(String name, Coordinates coordinates) {
+    public JetPlane(String name, Coordinates coordinates) {
         super(name, coordinates);
         this.type = "JetPlane";
     }
@@ -11,19 +11,23 @@ public class JetPlane extends Aircraft implements Flyable {
     public void registerTower(WeatherTower tower) {
         this.weatherTower = tower;
         this.weatherTower.register(this);
-        Logs.log(String.format("Tower says: JetPlane #%s registered to weather tower.", name, id));
     }
 
-    // public void updateConditions() {
-    //     if ("SUN") {
-    //         latitude += 10;
-    //         height += 2;
-    //     } else if ("RAIN") {
-    //         latitude += 5;
-    //     } else if ("FOG") {
-    //         latitude += 1;
-    //     } else if ("SNOW") {
-    //         height -= 7;
-    //     }
-    // };
+    public void updateConditions() {
+        String weather = weatherTower.getWeather(coordinates);
+        if (weather.equals("SUN")) {
+            coordinates.changeLatitude(10);
+            coordinates.changeHeight(2);
+            Logs.log("JetPlane Sun height & lat change");
+        } else if (weather.equals("RAIN")) {
+            coordinates.changeLatitude(5);
+            Logs.log("JetPlane Rain lat change");
+        } else if (weather.equals("FOG")) {
+            coordinates.changeLatitude(1);
+            Logs.log("JetPlane Fog lat change");
+        } else if (weather.equals("SNOW")) {
+            coordinates.changeHeight(-7);
+            Logs.log("JetPlane Snow height change");
+        }
+    }
 }

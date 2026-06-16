@@ -1,9 +1,9 @@
 package src;
 
-public class Balloon extends Aircraft implements Flyable {
+class Balloon extends Aircraft {
     private WeatherTower weatherTower;
     
-    Balloon(String name, Coordinates coordinates) {
+    public Balloon(String name, Coordinates coordinates) {
         super(name, coordinates);
         this.type = "Balloon";
     }
@@ -11,19 +11,23 @@ public class Balloon extends Aircraft implements Flyable {
     public void registerTower(WeatherTower tower) {
         this.weatherTower = tower;
         this.weatherTower.register(this);
-        Logs.log(String.format("Tower says: Balloon #%s registered to weather tower.", name, id));
     }
 
-    // public void updateConditions(
-    //     if ("SUN") {
-    //         longitude += 2;
-    //         height += 4;
-    //     } else if ("RAIN") {
-    //         height -= 5;
-    //     } else if ("FOG") {
-    //         height -= 3;
-    //     } else if ("SNOW") {
-    //         height -= 15;
-    //     }
-    // );
+    public void updateConditions() {
+        String weather = weatherTower.getWeather(coordinates);
+        if (weather.equals("SUN")) {
+            coordinates.changeLongitude(2);
+            coordinates.changeHeight(4);
+            Logs.log("Balloon Sun height & lat change");
+        } else if (weather.equals("RAIN")) {
+            coordinates.changeHeight(-5);
+            Logs.log("Balloon Rain height change");
+        } else if (weather.equals("FOG")) {
+            coordinates.changeHeight(-3);
+            Logs.log("Balloon Fog height change");
+        } else if (weather.equals("SNOW")) {
+            coordinates.changeHeight(-15);
+            Logs.log("Balloon Snow height change");
+        }
+    }
 }

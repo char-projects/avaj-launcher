@@ -7,13 +7,14 @@ import java.util.Scanner;
 public class Simulation {
     private Logs logs = new Logs();
     private static WeatherTower tower;
+    private static int numSimulations;
     
     private Simulation() {}
 
     public static void parseFirstInputLine (String firstLine) {
         try {
-            Integer.parseInt(firstLine);
             Logs.log("The simulation will run " + firstLine + " times.");
+            Simulation.numSimulations = Integer.parseInt(firstLine);
         } catch (NumberFormatException nfe) {
             System.out.println("The first line of the file should (only) contain a positive integer");
         }
@@ -38,6 +39,9 @@ public class Simulation {
                         Flyable aircraft = AircraftFactory.newAircraft(splitInput[0], splitInput[1], Integer.parseInt(splitInput[2]), Integer.parseInt(splitInput[3]), Integer.parseInt(splitInput[4]));
                         if (aircraft != null) {
                             aircraft.registerTower(tower);
+                            for (int count = 0; count < Simulation.numSimulations; count++) {
+                                aircraft.updateConditions();
+                            }
                         }
                     } catch (NumberFormatException nfe) {
                         System.out.println("The coordinates in line " + i + " have to be numeric");
