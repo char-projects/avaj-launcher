@@ -1,8 +1,19 @@
-public class Tower {
-    private List<Flyable*> observers;
+package src;
+import java.util.List;
+import java.util.ArrayList;
 
-    public void register(Flyable* p_flyable);
-    public void unregister(Flyable* p_flyable);
+public class Tower {
+    private List<Flyable> observers = new ArrayList<>();
+
+    public void register(Flyable flyable) {
+        if (!observers.contains(flyable)) {
+            observers.add(flyable);
+        }
+    };
+
+    public void unregister(Flyable flyable) {
+        observers.remove(flyable);
+    };
     
-    protected void conditionChanged();
+    // protected void conditionChanged() {};
 }

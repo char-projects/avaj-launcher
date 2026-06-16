@@ -1,5 +1,7 @@
-public class Flyable {
-    protected WeatherTower weatherTower;
-    public abstract void updateConditions();
-    public registerTower(WeatherTower* p_tower);
+package src;
+
+public interface Flyable {
+    // protected WeatherTower weatherTower;
+    // public abstract void updateConditions();
+    public void registerTower(WeatherTower weatherTower);
 }
