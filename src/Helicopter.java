@@ -18,16 +18,16 @@ class Helicopter extends Aircraft {
         if (weather.equals("SUN")) {
             coordinates.changeLongitude(10);
             coordinates.changeHeight(2);
-            Logs.log("Helicopter Sun height & long change");
+            Logs.log(String.format("%s: Sun height & long change", this.toString()));
         } else if (weather.equals("RAIN")) {
             coordinates.changeLongitude(5);
-            Logs.log("Helicopter Rain long change");
+            Logs.log(String.format("%s: Rain long change", this.toString()));
         } else if (weather.equals("FOG")) {
             coordinates.changeLongitude(1);
-            Logs.log("Helicopter Fog long change");
+            Logs.log(String.format("%s: Fog long change", this.toString()));
         } else if (weather.equals("SNOW")) {
             coordinates.changeHeight(-12);
-            Logs.log("Helicopter Snow height change");
+            Logs.log(String.format("%s: Snow height change", this.toString()));
 
         }
     }

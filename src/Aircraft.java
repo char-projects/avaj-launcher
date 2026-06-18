@@ -6,6 +6,7 @@ public abstract class Aircraft extends Flyable {
     protected Coordinates coordinates;
     protected String type;
     static private long idCounter = 1;
+    protected boolean status = false;
 
     protected Aircraft(String name, Coordinates coordinates) {
         this.id = this.nextId();
@@ -28,5 +29,21 @@ public abstract class Aircraft extends Flyable {
 
     public String getName() {
         return (this.name);
+    };
+
+    public String toString() {
+        return (String.format("%s#%s(%d)", this.type, this.name, this.id));
+    };
+
+    public Coordinates getCoordinates() {
+        return (coordinates);
+    };
+
+    public void setStatus(boolean flag) {
+        this.status = flag;
+    };
+
+    public boolean getStatus() {
+        return (this.status);
     };
 }

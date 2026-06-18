@@ -18,16 +18,16 @@ class JetPlane extends Aircraft {
         if (weather.equals("SUN")) {
             coordinates.changeLatitude(10);
             coordinates.changeHeight(2);
-            Logs.log("JetPlane Sun height & lat change");
+            Logs.log(String.format("%s: Sun height & lat change", this.toString()));
         } else if (weather.equals("RAIN")) {
             coordinates.changeLatitude(5);
-            Logs.log("JetPlane Rain lat change");
+            Logs.log(String.format("%s: Rain lat change", this.toString()));
         } else if (weather.equals("FOG")) {
             coordinates.changeLatitude(1);
-            Logs.log("JetPlane Fog lat change");
+            Logs.log(String.format("%s: Fog lat change", this.toString()));
         } else if (weather.equals("SNOW")) {
             coordinates.changeHeight(-7);
-            Logs.log("JetPlane Snow height change");
+            Logs.log(String.format("%s: Snow height change", this.toString()));
         }
     }
 }

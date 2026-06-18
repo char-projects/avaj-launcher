@@ -12,4 +12,8 @@ public abstract class Flyable {
     public abstract long getId();
     public abstract String getType();
     public abstract String getName();
+    public abstract String toString();
+    public abstract Coordinates getCoordinates();
+    public abstract void setStatus(boolean flag);
+    public abstract boolean getStatus();
 }

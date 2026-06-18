@@ -18,16 +18,16 @@ class Balloon extends Aircraft {
         if (weather.equals("SUN")) {
             coordinates.changeLongitude(2);
             coordinates.changeHeight(4);
-            Logs.log("Balloon Sun height & lat change");
+            Logs.log(String.format("%s: Sun height & lat change", this.toString()));
         } else if (weather.equals("RAIN")) {
             coordinates.changeHeight(-5);
-            Logs.log("Balloon Rain height change");
+            Logs.log(String.format("%s: Rain height change", this.toString()));
         } else if (weather.equals("FOG")) {
             coordinates.changeHeight(-3);
-            Logs.log("Balloon Fog height change");
+            Logs.log(String.format("%s: Fog height change", this.toString()));
         } else if (weather.equals("SNOW")) {
             coordinates.changeHeight(-15);
-            Logs.log("Balloon Snow height change");
+            Logs.log(String.format("%s: Snow height change", this.toString()));
         }
     }
 }
