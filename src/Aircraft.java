@@ -5,18 +5,13 @@ public abstract class Aircraft extends Flyable {
     protected String name;
     protected Coordinates coordinates;
     protected String type;
-    static private long idCounter = 1;
     protected boolean status = false;
 
-    protected Aircraft(String name, Coordinates coordinates) {
-        this.id = this.nextId();
-        this.name = name;
-        this.coordinates = coordinates;
+    protected Aircraft(long p_id, String p_name, Coordinates p_coordinate) {
+        this.id = p_id;
+        this.name = p_name;
+        this.coordinates = p_coordinate;
         this.type = "Default";
-    };
-
-    private long nextId() {
-        return (Aircraft.idCounter++);
     };
 
     public long getId() {

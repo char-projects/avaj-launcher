@@ -2,17 +2,32 @@ package src;
 // Singleton
 
 public class AircraftFactory {
-    public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
-        Coordinates coordinates = new Coordinates(longitude, latitude, height);
-        
-        if (type.toLowerCase().equals("helicopter")) {
-            return new Helicopter(name, coordinates);
-        } else if (type.toLowerCase().equals("jetplane")) {
-            return new JetPlane(name, coordinates);
-        } else if (type.toLowerCase().equals("balloon")) {
-            return new Balloon(name, coordinates);
+    private static AircraftFactory instance;
+    private static long id = 0;
+
+    private AircraftFactory() {}
+
+    public static AircraftFactory getInstance() {
+        if (instance == null) {
+            instance = new AircraftFactory();
+        }
+        return (instance);
+    }
+
+    private long nextId() {
+        return (++id);
+    }
+
+    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) { 
+        long p_id = nextId();       
+        if (p_type.toLowerCase().equals("helicopter")) {
+            return new Helicopter(p_id, p_name, p_coordinates);
+        } else if (p_type.toLowerCase().equals("jetplane")) {
+            return new JetPlane(p_id, p_name, p_coordinates);
+        } else if (p_type.toLowerCase().equals("balloon")) {
+            return new Balloon(p_id, p_name, p_coordinates);
         } else {
-            System.out.println("Error identifying " + type);
+            System.out.println("Error identifying " + p_type);
             return (null);
         }
     };

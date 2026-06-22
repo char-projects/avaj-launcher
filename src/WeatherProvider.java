@@ -29,34 +29,10 @@ public class WeatherProvider {
         districtWeather.put("District 4", generateWeather());
     }
 
-    // public static void formatCoordLog(int longitude, int latitude, int height) {
-    //     StringJoiner longJoin = new StringJoiner(": ");
-    //     StringJoiner latJoin = new StringJoiner(": ");
-    //     StringJoiner heightJoin = new StringJoiner(": ");
-    //     StringJoiner coordJoin = new StringJoiner(", ");
-
-    //     String longitudeStr = Integer.toString(longitude);
-    //     String latitudeStr = Integer.toString(latitude);
-    //     String heightStr = Integer.toString(height);
-
-    //     longJoin.add("Longitude").add(longitudeStr);
-    //     String joinerLong = longJoin.toString();
-    //     latJoin.add("Latitude").add(latitudeStr);
-    //     String joinerLat = latJoin.toString();
-    //     heightJoin.add("Height").add(heightStr);
-    //     String joinerHeight = heightJoin.toString();
-
-    //     coordJoin.add(joinerLong).add(joinerLat).add(joinerHeight);
-    //     String coordStr = coordJoin.toString();
-    //     Logs.log(coordStr);
-    // };
-
-    public String getCurrentWeather(Coordinates coordinates) {
-        int longitude = coordinates.getLongitude();
-        int latitude = coordinates.getLatitude();
-        int height = coordinates.getHeight();
-
-        // WeatherProvider.formatCoordLog(longitude, latitude, height);
+    public String getCurrentWeather(Coordinates p_coordinates) {
+        int longitude = p_coordinates.getLongitude();
+        int latitude = p_coordinates.getLatitude();
+        int height = p_coordinates.getHeight();
 
         String district;
         if (longitude < 500 && height <= 50) {
@@ -70,7 +46,6 @@ public class WeatherProvider {
         }
 
         String weatherStr = districtWeather.get(district);
-        Logs.log(String.format("Weather Provider says: The weather in %s is %s", district, weatherStr));
         return (weatherStr);
     };
 }
