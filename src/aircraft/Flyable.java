@@ -1,4 +1,5 @@
-package src;
+package src.aircraft;
+import src.weather.WeatherTower;
 
 public abstract class Flyable {
     protected WeatherTower weatherTower;

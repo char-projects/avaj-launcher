@@ -1,4 +1,4 @@
-package src;
+package src.aircraft;
 
 public abstract class Aircraft extends Flyable {
     protected long id;

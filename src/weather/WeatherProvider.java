@@ -1,4 +1,6 @@
-package src;
+package src.weather;
+import src.aircraft.Coordinates;
+
 import java.util.StringJoiner;
 import java.util.Map;
 import java.util.HashMap;

@@ -1,4 +1,9 @@
 package src;
+import src.weather.WeatherTower;
+import src.aircraft.AircraftFactory;
+import src.aircraft.Flyable;
+import src.aircraft.Coordinates;
+
 import java.io.IOException;
 import java.io.File;
 import java.io.FileNotFoundException;

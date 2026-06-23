@@ -1,4 +1,7 @@
-package src;
+package src.weather;
+import src.aircraft.Flyable;
+import src.Logs;
+
 import java.util.List;
 import java.util.ArrayList;
 
