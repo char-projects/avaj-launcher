@@ -24,7 +24,6 @@ public class Simulation {
         try (Scanner myReader = new Scanner(myObj)) {
             int i = 2;
             String input;
-            // Skip first line
             if (myReader.hasNextLine()) {
                 input = myReader.nextLine();
             }
@@ -62,11 +61,8 @@ public class Simulation {
     }
 
     public static void parseInput(String filename) throws Exceptions {
-        // Check if input file exists
         File myObj = new File(filename);
         try (Scanner myReader = new Scanner(myObj)) {
-            // Read the file line by line
-            // First line
             String input;
             if (myReader.hasNextLine()) {
                 input = myReader.nextLine();
@@ -76,7 +72,6 @@ public class Simulation {
                     throw new Exceptions("The first line of the file should (only) contain a positive integer");
                 }
             }
-            // Other lines
             int i = 2;
             while (myReader.hasNextLine()) {
                 input = myReader.nextLine();
